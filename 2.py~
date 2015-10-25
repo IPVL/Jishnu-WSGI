@@ -1,0 +1,34 @@
+#! /usr/bin/env python
+
+def simple_app(environ, start_response):
+    """Simplest possible application object"""
+    status = '200 OK'
+    print environ
+    print '\n\n\n\n\nBangladesh\n\n\n\n'
+
+    #print environ
+    print '---'
+    print environ['HTTP_JISHNU']
+    print '---'
+    response_headers = [('Content-Type', 'text/plain')]
+    start_response(status, response_headers)
+    print 'Hi World'
+    ss = environ.get('HTTP_JISHNU')
+	if ss: print "Here -->"
+
+    #return ['Hello world!\nHi World\nbeautiful bangladesh\n']
+    #return ['only beautiful bangladesh is real\nOthers are fake :3\n']
+    if not ss:
+        return ":("
+    else:
+        return ss     	
+    print '1234'
+    #return ['Hi World!\n']
+
+if __name__ == '__main__':
+    #int 'line 1'
+    from paste import httpserver
+    #print 'hello :D '
+    #print 'hi :D'
+    httpserver.serve(simple_app, host='192.168.8.105', port='8080' )
+    print 'Jishnu Banerjee'
