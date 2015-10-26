@@ -22,7 +22,7 @@ class Caseless:
 
     def __call__(self, environ, start_response):
         for chunk in self.app(environ, start_response):
-            yield chunk.lower()
+            yield chunk.upper()
 
 if __name__ == '__main__':
     from paste import httpserver
