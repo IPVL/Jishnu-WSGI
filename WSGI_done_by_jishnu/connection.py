@@ -6,6 +6,7 @@ class Connection:
 		print self.one
 	def __call__(self,environ,start_response):
 		status = '200 OK'
+		print environ
 		response_headers = [('Content-Type', 'text/plain')]
 		start_response(status, response_headers)
 		return ['%s\n' % (self.one)]
